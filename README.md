@@ -1,7 +1,6 @@
 # Dynamic Wallpaper.
 Changes the background depending on the time of day.
 
-
 # Installation.
 1. Downlaod The [latest Release](https://github.com/Galileo-dev/Dynamic-Wallpaper/releases).
 2. Extract The .zip file.
@@ -17,6 +16,9 @@ so if an images name is ```14.jpeg``` the image will change to that at ```14:00`
 
 # Future Plans.
 - Create an installer
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 # Disclaimer
 The images located in the ``` stored_images ``` folder belong rightfully to Apple Inc.
