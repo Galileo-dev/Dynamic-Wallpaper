@@ -11,8 +11,8 @@ Changes the background depending on the time of day.
 8. Then hit ok until exited.
 
 ## How to Change images
-Images are stored in the ``` stored_images ``` folder. The image names refelect at what time the program will change the
-so if an images name is ```14.jpeg``` the image will change to that at ```14:00``` or 2pm and so on.
+Images are stored in the ``` stored_images ``` folder. The image names refelect at what time the program will change the wallpaper.
+So if an images name is ```14.jpeg``` the wallpaper will change to that image at ```14:00``` or 2pm and so on.
 
 ## Future Plans.
 - Create an installer
