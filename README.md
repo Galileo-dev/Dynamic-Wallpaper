@@ -18,6 +18,6 @@ so if an images name is ```14.jpeg``` the image will change to that at ```14:00`
 # Future Plans.
 - Create an installer
 
-#Disclaimer
+# Disclaimer
 The images located in the ``` stored_images ``` folder belong rightfully to Apple Inc.
 if requested these images may be removed and if so please follow the intructions above to use your own image.
