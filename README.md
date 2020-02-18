@@ -22,4 +22,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Disclaimer
 The images located in the ``` stored_images ``` folder belong rightfully to Apple Inc.
-if requested these images may be removed and if so please follow the intructions above to use your own image.
+if requested these images may be removed and if so please follow the intructions above to use your own images.
