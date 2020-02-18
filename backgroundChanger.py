@@ -11,7 +11,7 @@ from os import walk
 
 from datetime import datetime
 
-
+mypath = "./stored_backgrounds"
 
 
 def wallpaper(mypath):
@@ -19,6 +19,7 @@ def wallpaper(mypath):
 	try:
 		imageUsed = setImageAsBackground(GetImage(imageFilename, now()))
 	except:
+		print("Failed to get image")
 		exit()
 	return "Mojave" + "_{0}".format(imageUsed)
 
@@ -57,3 +58,5 @@ def getFullPathOfImage(imageFilename):
 		return "None"
 	
 
+
+image = wallpaper(mypath)
