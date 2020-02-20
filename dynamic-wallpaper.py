@@ -11,26 +11,39 @@ from os import walk
 
 from datetime import datetime
 
-mypath = "./stored_backgrounds"
+if (internet_on()):
+	mypath = "./stored_backgrounds"
+else: 
+	mypath = "./stored_backgrounds/sun"
 
 
 def wallpaper(mypath):
 	imageFilename = getImageNames(mypath)
 	try:
-		setImageAsBackground(GetImage(imageFilename, now()))
+		setImageAsBackground(GetImage(imageFilename, ImageNum()))
 	except:
 		pass
-	//hi
+
 
 		
 	
-
-
+def ImageNum():
+	if (internet_on()):
+		return 1
+	else:
+		return now() 
 def now():
 	now = datetime.now()
 	current_time = now.strftime("%H")
 	return current_time
 
+
+def internet_on():
+	try:
+		urllib.request.urlopen('http://216.58.192.142', timeout=1)
+		return True
+	except urllib.request.URLError as err:
+		return False
 
 def GetImage(imageFilename, num):
 	imageFilename.sort(key=len)
@@ -47,9 +60,11 @@ def getImageNames(mypath):
 
 def setImageAsBackground(imageFilename):
 	try:
+		print("Attempting to print")
 		ctypes.windll.user32.SystemParametersInfoW(20, 0, getFullPathOfImage(imageFilename) , 0)
 		return imageFilename
 	except:
+		print("Changing Wallpaper Failed")
 		return "None"
 	
 
