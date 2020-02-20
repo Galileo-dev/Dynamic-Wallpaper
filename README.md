@@ -12,6 +12,8 @@ Changes the background depending on the time of day.
 9. Then hit ok until exited.
 
 ## How to Change images
+First you need to get some images. I would suggest you check out this website (https://dynamicwallpaper.club/gallery)
+
 Images are stored in the ``` stored_images ``` folder. The image names refelect at what time the program will change the wallpaper.
 So if an images name is ```14.jpeg``` the wallpaper will change to that image at ```14:00``` or 2pm and so on.
 
@@ -23,4 +25,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Disclaimer
 The images located in the ``` stored_images ``` folder belong rightfully to Apple Inc.
-if requested these images may be removed and if so please follow the intructions above to use your own images.
+if requested these images may be removed and if so please follow the instructions above to use your own images.
