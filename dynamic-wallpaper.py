@@ -20,6 +20,7 @@ def wallpaper(mypath):
 		setImageAsBackground(GetImage(imageFilename, now()))
 	except:
 		pass
+	//hi
 
 		
 	
