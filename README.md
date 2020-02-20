@@ -1,5 +1,5 @@
 # What is sunPos Branch
-  in this branch I will hope to add support for the position of the sun. this feature will use your ip address which means if you are using a vpn this method wont work and id suggest turnning it off (I will later implement an option to do so). right now im going to     decode a heic file and use the sun data already in it. https://dynamicwallpaper.club/gallery is the best example.  
+ In this branch I will hope to add support for the position of the sun. this feature will use your ip address which means if you are using a vpn this method wont work and id suggest disabling this feature (I will later implement an option to do so). right now im going to     decode a heic file and use the sun data already in it. https://dynamicwallpaper.club/gallery is the best example.  
 
 If you are willing to help I would be grateful :smile:
 
