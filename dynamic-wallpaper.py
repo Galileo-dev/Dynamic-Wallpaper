@@ -17,11 +17,12 @@ mypath = "./stored_backgrounds"
 def wallpaper(mypath):
 	imageFilename = getImageNames(mypath)
 	try:
-		imageUsed = setImageAsBackground(GetImage(imageFilename, now()))
+		setImageAsBackground(GetImage(imageFilename, now()))
 	except:
-		print("Failed to get image")
-		exit()
-	return "Mojave" + "_{0}".format(imageUsed)
+		pass
+
+		
+	
 
 
 def now():
@@ -59,4 +60,4 @@ def getFullPathOfImage(imageFilename):
 	
 
 
-image = wallpaper(mypath)
+wallpaper(mypath)
