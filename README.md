@@ -19,6 +19,8 @@ So if an images name is ```14.jpeg``` the wallpaper will change to that image at
 
 ## Future Plans.
 - Create an installer
+- Use sun position to determine wallpaper
+- Create a ui
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
