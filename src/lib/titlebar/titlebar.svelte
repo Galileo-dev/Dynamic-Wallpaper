@@ -6,11 +6,11 @@
 	<div id="drag-region" data-tauri-drag-region>
 		<div id="window-title" data-tauri-drag-region>
 			<span>Dynamic Wallpaper</span>
-		</div>
-		<div id="right-title">
-			<div id="version">
-				<p>v0.0.0</p>
-				<div id="divider" />
+			<div id="right-title">
+				<div id="version">
+					<p>v0.0.0</p>
+					<div id="divider" />
+				</div>
 			</div>
 		</div>
 
@@ -18,28 +18,28 @@
 			<div class="button" id="min-button" on:click={() => appWindow.minimize()}>
 				<img
 					class="icon"
-					srcset="icons/min-w-10.png 1x, icons/min-w-12.png 1.25x, icons/min-w-15.png 1.5x, icons/min-w-15.png 1.75x, icons/min-w-20.png 2x, icons/min-w-20.png 2.25x, icons/min-w-24.png 2.5x, icons/min-w-30.png 3x, icons/min-w-30.png 3.5x"
+					srcset="/icons/min-w-10.png 1x, /icons/min-w-12.png 1.25x, /icons/min-w-15.png 1.5x, /icons/min-w-15.png 1.75x, /icons/min-w-20.png 2x, /icons/min-w-20.png 2.25x, /icons/min-w-24.png 2.5x, /icons/min-w-30.png 3x, /icons/min-w-30.png 3.5x"
 					draggable="false"
 				/>
 			</div>
 			<div class="button" id="max-button" on:click={() => appWindow.toggleMaximize()}>
 				<img
 					class="icon"
-					srcset="icons/max-w-10.png 1x, icons/max-w-12.png 1.25x, icons/max-w-15.png 1.5x, icons/max-w-15.png 1.75x, icons/max-w-20.png 2x, icons/max-w-20.png 2.25x, icons/max-w-24.png 2.5x, icons/max-w-30.png 3x, icons/max-w-30.png 3.5x"
+					srcset="/icons/max-w-10.png 1x, /icons/max-w-12.png 1.25x, /icons/max-w-15.png 1.5x, /icons/max-w-15.png 1.75x, /icons/max-w-20.png 2x, /icons/max-w-20.png 2.25x, /icons/max-w-24.png 2.5x, /icons/max-w-30.png 3x, /icons/max-w-30.png 3.5x"
 					draggable="false"
 				/>
 			</div>
 			<div class="button" id="close-button" on:click={() => appWindow.close()}>
 				<img
 					class="icon"
-					srcset="icons/close-w-10.png 1x, icons/close-w-12.png 1.25x, icons/close-w-15.png 1.5x, icons/close-w-15.png 1.75x, icons/close-w-20.png 2x, icons/close-w-20.png 2.25x, icons/close-w-24.png 2.5x, icons/close-w-30.png 3x, icons/close-w-30.png 3.5x"
+					srcset="/icons/close-w-10.png 1x, /icons/close-w-12.png 1.25x, /icons/close-w-15.png 1.5x, /icons/close-w-15.png 1.75x, /icons/close-w-20.png 2x, /icons/close-w-20.png 2.25x, /icons/close-w-24.png 2.5x, /icons/close-w-30.png 3x, /icons/close-w-30.png 3.5x"
 					draggable="false"
 				/>
 			</div>
 			<!-- <div class="button" id="restore-button">
 				<img
 					class="icon"
-					srcset="icons/restore-w-10.png 1x, icons/restore-w-12.png 1.25x, icons/restore-w-15.png 1.5x, icons/restore-w-15.png 1.75x, icons/restore-w-20.png 2x, icons/restore-w-20.png 2.25x, icons/restore-w-24.png 2.5x, icons/restore-w-30.png 3x, icons/restore-w-30.png 3.5x"
+					srcset="/icons/restore-w-10.png 1x, /icons/restore-w-12.png 1.25x, /icons/restore-w-15.png 1.5x, /icons/restore-w-15.png 1.75x, /icons/restore-w-20.png 2x, /icons/restore-w-20.png 2.25x, /icons/restore-w-24.png 2.5x, /icons/restore-w-30.png 3x, /icons/restore-w-30.png 3.5x"
 					draggable="false"
 				/>
 			</div> -->
@@ -48,44 +48,44 @@
 </div>
 
 <style>
-	#divider {
-		border-left: 2px solid rgb(175, 175, 175);
-		height: 26px;
-		grid-row: 1 / span 1;
-		display: flex;
-		justify-content: center;
-		margin-left: 10px;
-		align-items: center;
-		border-radius: 20px;
-	}
-
 	#right-title {
-		position: absolute;
-		top: 0;
-		right: calc((46px * 3) + 20px);
+		align-items: center;
+		display: flex;
+		margin-left: auto;
+		flex-wrap: nowrap;
+		align-content: center;
+		align-self: center;
+
 		height: 100%;
-		color: rgb(175, 175, 175);
 	}
 
 	#version {
-		color: rgb(175, 175, 175);
-		grid-row: 1 / span 1;
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
+		flex-wrap: nowrap;
+		align-content: center;
+		align-self: center;
+
 		height: 100%;
 	}
 
 	#version p {
-		grid-row: 1 / span 1;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: 100%;
-		color: rgb(175, 175, 175);
-		font-weight: 500;
+		font-size: 1em;
+		align-content: center;
+		align-self: center;
+		text-align: center;
+		font-size: 1.2em;
+		letter-spacing: 1.3px;
+		font-weight: 400;
+		margin: 1px;
+	}
+
+	#divider {
+		border-left: 1px solid rgb(230, 230, 230);
+
+		margin-left: 20px;
+		margin-right: 20px;
+		height: 15px;
+		align-self: center;
 	}
 
 	#titlebar {
@@ -118,7 +118,7 @@
 	}
 
 	#titlebar {
-		background: #254053;
+		background: var(--main-hover-color);
 		color: #fff;
 	}
 

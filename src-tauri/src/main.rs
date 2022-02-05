@@ -3,8 +3,11 @@
   windows_subsystem = "windows"
 )]
 
+pub mod commands;
+
 fn main() {
   tauri::Builder::default()
+    .invoke_handler(tauri::generate_handler![commands::set_wallpaper])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }

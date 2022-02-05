@@ -12,6 +12,14 @@
 
 <style>
 	#main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		padding: 1rem;
+		width: 100%;
+		margin: 0 auto;
+		box-sizing: border-box;
+
 		height: calc(100% - 32px);
 		margin-top: 32px;
 		padding: 20px;
@@ -35,9 +43,9 @@
 		font-weight: bold;
 	} */
 
-	@media (min-width: 480px) {
+	/* @media (min-width: 480px) {
 		footer {
 			padding: 40px 0;
 		}
-	}
+	} */
 </style>
