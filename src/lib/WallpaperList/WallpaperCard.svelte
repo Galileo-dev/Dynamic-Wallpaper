@@ -19,16 +19,13 @@
 	.container {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-around;
 		padding: 1rem;
-		height: 100%;
 	}
 
 	img {
 		object-fit: cover;
 		border-radius: 1rem;
 		margin-bottom: 1rem;
-		width: 100%;
 	}
 
 	h2 {

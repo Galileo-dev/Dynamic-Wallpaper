@@ -4,17 +4,26 @@
 	import WallpaperList from '../lib/WallpaperList/WallaperList.svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
 
+	import { loadData, deleteData, addData } from '$lib/WallpaperList/api.svelte';
+	import AddNewCard from '$lib/WallpaperList/AddNewCard.svelte';
+
+	async function getItems() {
+		return loadData();
+	}
+
 	function setBackground(imagePath) {
 		invoke('set_wallpaper', { path: imagePath });
 	}
+
+	let items = getItems();
 </script>
 
 <div class="container">
-	<div class="scroll-div">
-		<WallpaperList />
-	</div>
+	{#await items then value}
+		<WallpaperList items={value} />
+	{/await}
 	<div>
-		<CustomButton text="Add" on:click={() => setBackground('hello')} />
+		<CustomButton text="Add" on:click={() => addData()} />
 	</div>
 </div>
 
@@ -22,10 +31,5 @@
 	.container {
 		display: grid;
 		height: 100%;
-	}
-
-	.scroll-div {
-		height: 70vh;
-		border: 3px solid red;
 	}
 </style>
