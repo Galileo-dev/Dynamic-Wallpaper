@@ -1,11 +1,9 @@
 <script context="module" lang="ts">
-	export const prerender = true;
 	import CustomButton from '../lib/button.svelte';
 	import WallpaperList from '../lib/WallpaperList/WallaperList.svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
 
 	import { loadData, deleteData, addData } from '$lib/WallpaperList/api.svelte';
-	import AddNewCard from '$lib/WallpaperList/AddNewCard.svelte';
 
 	async function getItems() {
 		return loadData();

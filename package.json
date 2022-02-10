@@ -34,8 +34,8 @@
   "dependencies": {
     "@fontsource/fira-mono": "^4.5.0",
     "@lukeed/uuid": "^2.0.0",
-    "@tauri-apps/api": "^1.0.0-beta.8",
-    "tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store",
-    "cookie": "^0.4.1"
+    "@tauri-apps/api": "./packages/tauri-apps-api-next.tgz",
+    "cookie": "^0.4.1",
+    "tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store#1cbd9d9f4d5a102a5e0b800d0b316524f73878d4"
   }
 }

@@ -154,10 +154,11 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@tauri-apps/api@1.0.0-beta.8", "@tauri-apps/api@^1.0.0-beta.8":
+"@tauri-apps/api@./packages/tauri-apps-api-next.tgz", "@tauri-apps/api@1.0.0-beta.8":
   version "1.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/@tauri-apps/api/-/api-1.0.0-beta.8.tgz#a43dc4a4515148f29bfb616db85445b771e84f78"
-  integrity sha512-a56lXB7XvQ4+fKtT0pxpkjTSKhyrQ1Vmjyvt2ox3mT9xw3l7s8IOKHJ1WuqW6TA6xdoy3Cyja3Z3prw8hflS7g==
+  resolved "./packages/tauri-apps-api-next.tgz#19ee911299be3eb93bea4bb0051bc06196d43171"
+  dependencies:
+    type-fest "2.9.0"
 
 "@tauri-apps/cli@^1.0.0-beta.10":
   version "1.0.0-beta.10"
@@ -3777,9 +3778,9 @@ tar-stream@^2.1.4:
     inherits "^2.0.3"
     readable-stream "^3.1.1"
 
-"tauri-plugin-store-api@github:tauri-apps/tauri-plugin-store":
+"tauri-plugin-store-api@github:tauri-apps/tauri-plugin-store#1cbd9d9f4d5a102a5e0b800d0b316524f73878d4":
   version "0.1.0"
-  resolved "https://codeload.github.com/tauri-apps/tauri-plugin-store/tar.gz/e92d6721989915ecceb4e6900e9d29601c022aba"
+  resolved "https://codeload.github.com/tauri-apps/tauri-plugin-store/tar.gz/1cbd9d9f4d5a102a5e0b800d0b316524f73878d4"
   dependencies:
     "@tauri-apps/api" "1.0.0-beta.8"
     tslib "2.3.1"
@@ -3894,6 +3895,11 @@ type-check@^0.4.0, type-check@~0.4.0:
   integrity sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==
   dependencies:
     prelude-ls "^1.2.1"
+
+type-fest@2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-2.9.0.tgz#7a2d430dd966f52b6bc723da2aaa2c9867530551"
+  integrity sha512-uC0hJKi7eAGXUJ/YKk53RhnKxMwzHWgzf4t92oz8Qez28EBgVTfpDTB59y9hMYLzc/Wl85cD7Tv1hLZZoEJtrg==
 
 type-fest@^0.13.1:
   version "0.13.1"

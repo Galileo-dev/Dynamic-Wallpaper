@@ -1,11 +1,5 @@
 <script>
 	import { appWindow } from '@tauri-apps/api/window';
-
-	async function minimize() {
-		console.log('trying to minimize');
-
-		await appWindow.minimize();
-	}
 </script>
 
 <div id="titlebar">
@@ -21,7 +15,7 @@
 		</div>
 
 		<div id="window-controls">
-			<div class="button" id="min-button" on:click={() => minimize()}>
+			<div class="button" id="min-button" on:click={() => appWindow.minimize()}>
 				<img
 					class="icon"
 					srcset="/icons/min-w-10.png 1x, /icons/min-w-12.png 1.25x, /icons/min-w-15.png 1.5x, /icons/min-w-15.png 1.75x, /icons/min-w-20.png 2x, /icons/min-w-20.png 2.25x, /icons/min-w-24.png 2.5x, /icons/min-w-30.png 3x, /icons/min-w-30.png 3.5x"
