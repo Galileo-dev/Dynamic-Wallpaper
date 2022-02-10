@@ -1,7 +1,7 @@
 <script context="module">
 	// @ts-ignore
 	import { Store } from 'tauri-plugin-store-api';
-	const store = new Store('wallpapers_data.bin');
+	const store = new Store('.settings');
 
 	export async function loadData() {
 		// Template

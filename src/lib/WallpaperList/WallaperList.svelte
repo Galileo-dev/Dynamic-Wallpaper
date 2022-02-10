@@ -11,35 +11,33 @@
 	// }
 </script>
 
-<div class="scroll-div">
-	<div class="center">
-		<div class="item-list">
-			{#each items as item}
-				<WallpaperCard
-					image={'https://source.unsplash.com/random/?sexy'}
-					width="300px"
-					height="200px"
-					name={item.id}
-					{item}
-				/>
-			{/each}
-		</div>
+<div class="container">
+	<div class="item-list">
+		{#each items as item}
+			<WallpaperCard
+				image={'https://source.unsplash.com/random/?sexy'}
+				width="300px"
+				height="200px"
+				name={item.id}
+				{item}
+			/>
+		{/each}
 	</div>
 </div>
 
 <style>
 	div::-webkit-scrollbar {
-		width: 0.25rem;
+		width: 0.35rem;
 	}
 
 	div::-webkit-scrollbar-track {
-		background-color: var(--main-text-color);
-		border-radius: 50px;
+		background-color: var(--tertiary-color);
+		border-radius: 90px;
 	}
 
 	div::-webkit-scrollbar-thumb {
 		background-color: var(--accent-color);
-		border-radius: 50px;
+		border-radius: 90px;
 	}
 
 	.item-list {
@@ -50,14 +48,21 @@
 		grid-row-gap: 1rem;
 		grid-column-gap: 2rem;
 		overflow-x: hidden;
-		overflow-y: hidden;
+		overflow-y: scroll;
+		height: 100%;
+		/* display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-auto-rows: 50px;
+		grid-gap: 10px;
+		overflow-y: scroll; /*added*/
 	}
 
-	.scroll-div {
-		height: 70vh;
-
+	.container {
+		height: 75%;
 		/* border: 3px solid red; */
 		scroll-behavior: smooth;
-		overflow-y: scroll;
+		margin-bottom: 50px;
+		background-color: var(--tertiary-color);
+		border-radius: 5px;
 	}
 </style>

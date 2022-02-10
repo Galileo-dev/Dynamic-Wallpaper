@@ -20,6 +20,8 @@
 		display: flex;
 		flex-direction: column;
 		padding: 1rem;
+		background-color: var(--secondary-color);
+		border-radius: 10px;
 	}
 
 	img {
@@ -38,5 +40,6 @@
 
 	.description {
 		height: 5vh;
+		margin-bottom: 2rem;
 	}
 </style>

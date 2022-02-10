@@ -93,7 +93,7 @@
 		display: flex;
 		position: fixed;
 		height: 32px;
-		width: calc(100% - 2px);
+		width: 100%;
 	}
 
 	.maximized #titlebar {

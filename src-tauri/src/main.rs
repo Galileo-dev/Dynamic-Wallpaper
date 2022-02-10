@@ -8,7 +8,10 @@ use tauri_plugin_store::{PluginBuilder, StoreBuilder};
 
 fn main() {
   tauri::Builder::default()
-    .plugin(PluginBuilder::default().build())
-    .run(tauri::generate_context!())
-    .expect("failed to run app");
+  .plugin(
+    PluginBuilder::default()
+      .build(),
+  )
+  .run(tauri::generate_context!())
+  .expect("failed to run app");
 }
