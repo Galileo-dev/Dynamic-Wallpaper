@@ -2,7 +2,7 @@
 	import CustomButton from '../lib/button.svelte';
 	import WallpaperList from '../lib/WallpaperList/WallaperList.svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
-
+	import { appWindow } from '@tauri-apps/api/window';
 	import { loadData, deleteData, addData } from '$lib/WallpaperList/api.svelte';
 
 	async function getItems() {
@@ -22,6 +22,7 @@
 	{/await}
 	<div>
 		<CustomButton text="Add" on:click={() => addData()} />
+		<CustomButton text="Hide Window" on:click={() => appWindow.hide()} />
 	</div>
 </div>
 

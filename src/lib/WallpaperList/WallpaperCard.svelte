@@ -7,8 +7,8 @@
 </script>
 
 <div class="container">
-	<a> <img src={image} alt="wallpaper" {height} {width} /> </a>
-	<!-- href={'/configurator/' + item.id} -->
+	<a href={'/configurator/' + item.id}> <img src={image} alt="wallpaper" {height} {width} /> </a>
+
 	<div class="description">
 		<p>added: 19-06-2004</p>
 		<h2>{name}</h2>

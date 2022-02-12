@@ -1,10 +1,12 @@
 <script>
 	import { appWindow } from '@tauri-apps/api/window';
+	import icon from '../../../src-tauri/icons/Square30x30Logo.png';
 </script>
 
 <div id="titlebar">
 	<div id="drag-region" data-tauri-drag-region>
 		<div id="window-title" data-tauri-drag-region>
+			<!-- <img src="/favicon.png" height="23px" /> -->
 			<span>Dynamic Wallpaper</span>
 			<div id="right-title">
 				<div id="version">
@@ -29,7 +31,7 @@
 					draggable="false"
 				/>
 			</div>
-			<div class="button" id="close-button" on:click={() => appWindow.close()}>
+			<div class="button" id="close-button" on:click={() => appWindow.hide()}>
 				<img
 					class="icon"
 					srcset="/icons/close-w-10.png 1x, /icons/close-w-12.png 1.25x, /icons/close-w-15.png 1.5x, /icons/close-w-15.png 1.75x, /icons/close-w-20.png 2x, /icons/close-w-20.png 2.25x, /icons/close-w-24.png 2.5x, /icons/close-w-30.png 3x, /icons/close-w-30.png 3.5x"

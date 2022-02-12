@@ -13,15 +13,17 @@
 
 <div class="container">
 	<div class="item-list">
-		{#each items as item}
-			<WallpaperCard
-				image={'https://source.unsplash.com/random/?sexy'}
-				width="300px"
-				height="200px"
-				name={item.id}
-				{item}
-			/>
-		{/each}
+		<div class="items-container">
+			{#each items as item}
+				<WallpaperCard
+					image={'https://source.unsplash.com/random/?sexy'}
+					width="300px"
+					height="200px"
+					name={item.id}
+					{item}
+				/>
+			{/each}
+		</div>
 	</div>
 </div>
 
@@ -40,21 +42,27 @@
 		border-radius: 90px;
 	}
 
-	.item-list {
+	.items-container {
 		display: grid;
 		align-self: center;
 		justify-items: center;
-		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 		grid-row-gap: 1rem;
-		grid-column-gap: 2rem;
+		grid-column-gap: 1rem;
+		margin-top: 20px;
+		margin-bottom: 50px;
+	}
+
+	.item-list {
+		/* display: grid; */
+		/* align-self: center;
+		justify-items: center; */
+		/* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+		grid-row-gap: 1rem;
+		grid-column-gap: 2rem; */
 		overflow-x: hidden;
 		overflow-y: scroll;
 		height: 100%;
-		/* display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		grid-auto-rows: 50px;
-		grid-gap: 10px;
-		overflow-y: scroll; /*added*/
 	}
 
 	.container {

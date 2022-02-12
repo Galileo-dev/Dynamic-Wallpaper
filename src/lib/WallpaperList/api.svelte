@@ -1,5 +1,7 @@
-<script context="module">
+<script context="module" type="ts">
 	// @ts-ignore
+	import { dialog } from '@tauri-apps/api';
+	import { invoke } from '@tauri-apps/api/tauri';
 	import { Store } from 'tauri-plugin-store-api';
 	const store = new Store('.settings');
 
@@ -25,31 +27,44 @@
 	}
 
 	export async function addData() {
-		let id = Math.floor(100000 + Math.random() * 900000);
-
-		let template = {
-			id,
-			title: 'Sun Set',
-			date: '01/02/2004',
-			dir: 'C:/files/dir'
+		let filter1: dialog.DialogFilter = {
+			name: 'images',
+			extensions: ['heic']
 		};
-		let previous = [];
-		try {
-			previous = await store.get('past_wallpaper');
-		} catch {
-			console.log('no preivous wallpapers');
-		}
 
-		let current = [];
-		if (previous) {
-			current = previous;
-		} else {
-			current = [];
-		}
-		current.push(template);
-		await store.set('past_wallpaper', current).catch("Could'nt set store");
-		store.save();
-		console.log('Added New Wallpaper!');
+		let dialogOptions: dialog.OpenDialogOptions = {
+			filters: [filter1]
+		};
+
+		let path = await dialog.open(dialogOptions);
+
+		invoke('set_wallpaper', { path });
+
+		console.log(path);
+
+		// let id = Math.floor(100000 + Math.random() * 900000);
+		// let template = {
+		// 	id,
+		// 	title: 'Sun Set',
+		// 	date: '01/02/2004',
+		// 	dir: 'C:/files/dir'
+		// };
+		// let previous = [];
+		// try {
+		// 	previous = await store.get('past_wallpaper');
+		// } catch {
+		// 	console.log('no preivous wallpapers');
+		// }
+		// let current = [];
+		// if (previous) {
+		// 	current = previous;
+		// } else {
+		// 	current = [];
+		// }
+		// current.push(template);
+		// await store.set('past_wallpaper', current).catch("Could'nt set store");
+		// store.save();
+		// console.log('Added New Wallpaper!');
 	}
 
 	export function deleteData() {
