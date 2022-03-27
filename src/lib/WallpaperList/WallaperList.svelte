@@ -9,19 +9,14 @@
 	// for (let i = 0; i < 20; i++) {
 	// 	items.push(template_item);
 	// }
+	let url = 'https://source.unsplash.com/random/?=wallpaper';
 </script>
 
 <div class="container">
 	<div class="item-list">
 		<div class="items-container">
 			{#each items as item}
-				<WallpaperCard
-					image={'https://source.unsplash.com/random/?sexy'}
-					width="300px"
-					height="200px"
-					name={item.id}
-					{item}
-				/>
+				<WallpaperCard image={url} width="300px" height="200px" name={item.id} {item} />
 			{/each}
 		</div>
 	</div>

@@ -21,6 +21,7 @@ tauri = { git = "https://github.com/tauri-apps/tauri/", commit="4ae5e34", branch
 tauri-plugin-store = {git="https://github.com/tauri-apps/tauri-plugin-store", commit="1cbd9d9"}
 log = "0.4.14"
 pretty_env_logger = "0.4.0"
+libheif-rs = "0.15.0"
 
 [dependencies.tauri-plugin-log]
 git = "https://github.com/tauri-apps/tauri-plugin-log"
