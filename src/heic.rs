@@ -1,6 +1,12 @@
 use crate::{list, xml};
+use image::{
+    codecs::png::PngEncoder, GenericImage, GenericImageView, ImageBuffer, ImageEncoder, RgbImage,
+};
 use libheif_rs::{Channel, ColorSpace, HeifContext, ItemId, Result, RgbChroma};
-use std::io::{Cursor, Read};
+use std::{
+    fs::File,
+    io::{Cursor, Read},
+};
 pub fn decode_heic(path: String) -> Result<(i32)> {
     println!("decoding");
     let ctx = HeifContext::read_from_file(&path)?;
@@ -10,6 +16,28 @@ pub fn decode_heic(path: String) -> Result<(i32)> {
     println!("{:?}", image_ids);
     for id in image_ids {
         let handle = ctx.image_handle(id)?;
+        let color_space = ColorSpace::Rgb(RgbChroma::Rgb);
+        let decode = handle.decode(color_space, false).unwrap();
+        println!("{:?}", decode.bits_per_pixel(Channel::Interleaved).unwrap());
+        // Get pixels
+        let planes = decode.planes();
+        let interleaved_plane = planes.interleaved.unwrap();
+        let data = interleaved_plane.data;
+
+        // save as png
+        // std::fs::write( format!("output{}.png",id.to_string()), data).unwrap();
+        let mut buffer = File::create(format!("output{}.png", id.to_string())).unwrap();
+        let height = interleaved_plane.height;
+        let width = interleaved_plane.width;
+        let encoder = PngEncoder::new(buffer);
+        println!("{:?}", interleaved_plane.stride);
+        encoder
+            .write_image(data, width, height, image::ColorType::L8)
+            .unwrap();
+
+        // Construct a new RGB ImageBuffer with the specified width and height.
+
+        let img: RgbImage = ImageBuffer::new(width, height);
 
         // Get metadata
         let num_metadata = handle.number_of_metadata_blocks("");
