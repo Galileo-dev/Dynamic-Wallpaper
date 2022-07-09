@@ -3,7 +3,7 @@
 	import { dialog } from '@tauri-apps/api';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import { Store } from 'tauri-plugin-store-api';
-	const store = new Store('.settings');
+	const store = new Store('.settings.dat');
 
 	export async function loadData() {
 		// Template
@@ -38,33 +38,45 @@
 
 		let path = await dialog.open(dialogOptions);
 
-		invoke('set_wallpaper', { path });
-
 		console.log(path);
 
-		// let id = Math.floor(100000 + Math.random() * 900000);
-		// let template = {
-		// 	id,
-		// 	title: 'Sun Set',
-		// 	date: '01/02/2004',
-		// 	dir: 'C:/files/dir'
-		// };
-		// let previous = [];
-		// try {
-		// 	previous = await store.get('past_wallpaper');
-		// } catch {
-		// 	console.log('no preivous wallpapers');
-		// }
-		// let current = [];
-		// if (previous) {
-		// 	current = previous;
-		// } else {
-		// 	current = [];
-		// }
-		// current.push(template);
-		// await store.set('past_wallpaper', current).catch("Could'nt set store");
-		// store.save();
-		// console.log('Added New Wallpaper!');
+		let id = Math.floor(100000 + Math.random() * 900000);
+
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+		var yyyy = today.getFullYear();
+
+		var date = mm + '/' + dd + '/' + yyyy;
+
+		let previous = [];
+		try {
+			previous = await store.get('past_wallpaper');
+		} catch {
+			console.log('no preivous wallpapers');
+		}
+		let current = [];
+		if (previous) {
+			current = previous;
+		} else {
+			current = [];
+		}
+		let id_string = id.toString();
+
+		let json_data = await invoke('decode_heic', { pathToHeic: path, id: id_string });
+
+		let template = {
+			id,
+			title: 'This will be set later',
+			date: date,
+			data: json_data
+		};
+
+		current.push(template);
+
+		await store.set('past_wallpaper', current).catch("Could'nt set store");
+		store.save();
+		console.log('Added New Wallpaper!');
 	}
 
 	export function deleteData() {

@@ -50,7 +50,10 @@ fn main() {
       }
       _ => {}
     })
-    .invoke_handler(tauri::generate_handler![commands::set_wallpaper])
+    .invoke_handler(tauri::generate_handler![
+      commands::set_wallpaper,
+      commands::decode_heic
+    ])
     .build(tauri::generate_context!())
     .expect("failed to run app");
 

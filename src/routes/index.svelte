@@ -3,10 +3,11 @@
 	import WallpaperList from '../lib/WallpaperList/WallaperList.svelte';
 	import { invoke } from '@tauri-apps/api/tauri';
 	import { appWindow } from '@tauri-apps/api/window';
-	import { loadData, deleteData, addData } from '$lib/WallpaperList/api.svelte';
+	import { deleteData, addData, loadData } from '$lib/WallpaperList/api.svelte';
 
 	async function getItems() {
-		return loadData();
+		loadData();
+		return;
 	}
 
 	function setBackground(imagePath) {
