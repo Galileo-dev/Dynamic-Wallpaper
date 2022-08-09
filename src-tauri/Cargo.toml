@@ -23,7 +23,8 @@ serde = { version = "1.0", features = ["derive"] }
 log = "0.4.14"
 pretty_env_logger = "0.4.0"
 libheif-rs = "0.15.0"
-
+heic-decoder = {path="./plugins/heic-decoder"}
+color-eyre = "0.6.2"
 
 [dependencies.tauri-plugin-log]
 git = "https://github.com/tauri-apps/tauri-plugin-log"

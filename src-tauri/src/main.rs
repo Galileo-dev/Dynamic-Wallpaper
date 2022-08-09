@@ -7,12 +7,14 @@ pub mod commands;
 extern crate pretty_env_logger;
 #[macro_use]
 extern crate log;
+use color_eyre::eyre::Result;
 use log::{info, trace, warn};
 use tauri::{CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu};
 use tauri_plugin_log::{fern::colors::ColoredLevelConfig, LogTarget, LoggerBuilder};
 use tauri_plugin_store::{PluginBuilder, StoreBuilder};
 
-fn main() {
+fn main() -> Result<()> {
+  color_eyre::install()?;
   let tray_menu1 = SystemTrayMenu::new()
     .add_item(CustomMenuItem::new("show", "show"))
     .add_item(CustomMenuItem::new("exit_app", "Quit"));
@@ -62,5 +64,7 @@ fn main() {
       api.prevent_exit();
     }
     _ => {}
-  })
+  });
+
+  Ok(())
 }
