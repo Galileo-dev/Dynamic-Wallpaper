@@ -27,7 +27,7 @@ takes the path to the heic file. then decodes and copys its content to a folder 
 3. registers the images and metadata into the database
 4. returns a success
 */
-pub fn decode_heic(path_to_heic: String, id: String) -> Result<(), ()> {
+pub fn decode_heic(path_to_heic: String, id: String) -> Result<String, String> {
   //! Hard coding path_to_export somthing is broken right know im slowly going insane fixing it
   //! later me will fix this
   // let pathbuf_export = PathBuf::from(
@@ -51,5 +51,5 @@ pub fn decode_heic(path_to_heic: String, id: String) -> Result<(), ()> {
   // todo: add it to its own thread
   heic_decoder::heic::decode_heic(path_to_heic, path_to_export.display().to_string()).unwrap();
 
-  Ok(())
+  Ok("".to_string())
 }
