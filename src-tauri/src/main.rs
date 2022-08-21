@@ -2,16 +2,15 @@
   all(not(debug_assertions), target_os = "windows"),
   windows_subsystem = "windows"
 )]
-
 pub mod commands;
 extern crate pretty_env_logger;
 #[macro_use]
 extern crate log;
 use color_eyre::eyre::Result;
-use log::{info, trace, warn};
+
 use tauri::{CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu};
 use tauri_plugin_log::{fern::colors::ColoredLevelConfig, LogTarget, LoggerBuilder};
-use tauri_plugin_store::{PluginBuilder, StoreBuilder};
+use tauri_plugin_store::PluginBuilder;
 
 fn main() -> Result<()> {
   color_eyre::install()?;
@@ -36,7 +35,7 @@ fn main() -> Result<()> {
         // note that `tray_handle` can be called anywhere,
         // just get a `AppHandle` instance with `app.handle()` on the setup hook
         // and move it to another function or thread
-        let item_handle = app.tray_handle().get_item(&id);
+        let _item_handle = app.tray_handle().get_item(&id);
         match id.as_str() {
           "show" => {
             let window = app.get_window("main").unwrap();
@@ -59,7 +58,7 @@ fn main() -> Result<()> {
     .build(tauri::generate_context!())
     .expect("failed to run app");
 
-  app.run(|app_handle, event| match event {
+  app.run(|_app_handle, event| match event {
     tauri::RunEvent::ExitRequested { api, .. } => {
       api.prevent_exit();
     }

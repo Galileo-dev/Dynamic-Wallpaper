@@ -1810,6 +1810,7 @@ name = "heic-decoder"
 version = "0.1.0"
 dependencies = [
  "base64",
+ "color-eyre",
  "image",
  "ipgeolocate",
  "libheif-rs",
