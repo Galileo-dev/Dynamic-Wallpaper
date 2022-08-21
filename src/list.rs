@@ -1,6 +1,6 @@
-use base64::{decode, encode};
+use base64::{decode};
 use plist::Value;
-use std::io::{Cursor, Read, Result};
+use std::io::{Cursor, Result};
 
 pub fn decode_plist(value: String) -> Result<()> {
   println!("value: {:?}", value);
@@ -9,7 +9,7 @@ pub fn decode_plist(value: String) -> Result<()> {
   // let values = decoded_plist.as_dictionary().unwrap();
   let base64_u8: &[u8] = &base64;
   println!("base64: {:?}", base64);
-  let mut input = Cursor::new(base64_u8);
+  let input = Cursor::new(base64_u8);
 
   println!("Cursor: {:?}", input);
 

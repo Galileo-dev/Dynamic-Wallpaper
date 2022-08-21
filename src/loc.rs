@@ -7,7 +7,7 @@ pub async fn get_location() -> (f64, f64) {
     if let Some(ip) = public_ip::addr().await {
         match Locator::get(&ip.to_string(), service).await {
             Ok(ip) => return (ip.latitude.parse().unwrap(), ip.longitude.parse().unwrap()),
-            Err(error) => return (37.3346, 122.0090), // Apple Cupertino ,
+            Err(_error) => return (37.3346, 122.0090), // Apple Cupertino ,
         };
         return (37.3346, 122.0090); // Apple Cupertino
     } else {

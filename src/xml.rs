@@ -1,17 +1,17 @@
-use libheif_rs::HeifContext;
-use std::io::{Cursor, Read, Result};
+
+use std::io::{Result};
 use xml::reader::{EventReader, XmlEvent};
 
-pub fn decode_xml(metadata: Vec<u8>, filter: &str) -> Result<(String)> {
+pub fn decode_xml(metadata: Vec<u8>, filter: &str) -> Result<String> {
     let xml = EventReader::from_str(std::str::from_utf8(&metadata).unwrap());
-    let mut depth = 0;
+    let _depth = 0;
     let mut value = String::new();
     for e in xml {
         match e {
             Ok(XmlEvent::StartElement {
-                name,
+                name: _,
                 attributes,
-                namespace,
+                namespace: _,
             }) => {
                 // println!("Name: {:?}", name);
                 // println!("Attributes: {:?}", attributes);

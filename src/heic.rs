@@ -1,13 +1,13 @@
 use crate::{list, xml};
-use base64::encode;
+
 use color_eyre::Result;
 use image::{
-  codecs::png::PngEncoder, guess_format, DynamicImage, EncodableLayout, GenericImage,
-  GenericImageView, ImageBuffer, ImageEncoder, Rgb, RgbImage,
+  EncodableLayout,
+  GenericImageView,
 };
-use libheif_rs::{Channel, Chroma, ColorSpace, HeifContext, ItemId, RgbChroma};
-use rayon::{prelude::*, result};
-use std::{path::PathBuf, thread::current, u8};
+use libheif_rs::{Channel, ColorSpace, HeifContext, ItemId, RgbChroma};
+use rayon::{prelude::*};
+use std::{path::PathBuf};
 
 #[allow(warnings)]
 pub fn decode_heic(file_path: PathBuf, export_path: PathBuf) -> Result<()> {
