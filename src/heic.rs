@@ -1,13 +1,10 @@
 use crate::{list, xml};
 
 use color_eyre::Result;
-use image::{
-  EncodableLayout,
-  GenericImageView,
-};
+use image::{EncodableLayout, GenericImageView};
 use libheif_rs::{Channel, ColorSpace, HeifContext, ItemId, RgbChroma};
-use rayon::{prelude::*};
-use std::{path::PathBuf};
+use rayon::prelude::*;
+use std::{fs::File, io::BufWriter, path::PathBuf};
 
 #[allow(warnings)]
 pub fn decode_heic(file_path: PathBuf, export_path: PathBuf) -> Result<()> {
@@ -34,13 +31,22 @@ pub fn decode_heic(file_path: PathBuf, export_path: PathBuf) -> Result<()> {
     let width = img.width(Channel::Interleaved)?;
     let mut export_file_path = export_path.clone();
     export_file_path.push(format!(r"{}.png", id));
-    image::save_buffer(
-      &export_file_path,
-      bytes_inter.as_bytes(),
-      width,
-      height,
-      image::ColorType::Rgb8,
-    )?;
+
+    let file = File::create(export_file_path).unwrap();
+    let ref mut w = BufWriter::new(file);
+    let mut encoder = png::Encoder::new(w, width, height);
+    encoder.set_color(png::ColorType::Rgb);
+    encoder.set_depth(png::BitDepth::Eight);
+    let mut writer = encoder.write_header().unwrap();
+    writer.write_image_data(&bytes_inter).unwrap(); // Save
+
+    // image::save_buffer(
+    //   &export_file_path,
+    //   bytes_inter.as_bytes(),
+    //   width,
+    //   height,
+    //   image::ColorType::Rgb8,
+    // )?;
 
     // let mut result = Vec::<Vec<_>>::with_capacity(height as usize);
     // let mut result: Vec<u8> = Vec::with_capacity(width as usize * height as usize * 3);

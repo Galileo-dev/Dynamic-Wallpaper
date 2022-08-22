@@ -986,6 +986,7 @@ dependencies = [
  "ipgeolocate",
  "libheif-rs",
  "plist",
+ "png",
  "public-ip",
  "rayon",
  "serde",
