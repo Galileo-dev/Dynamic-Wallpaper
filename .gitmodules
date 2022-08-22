@@ -1,0 +1,4 @@
+[submodule "src-tauri/plugins/heic-decoder"]
+	path = src-tauri/plugins/heic-decoder
+	url = https://github.com/Galileo-dev/Dynamic-Wallpaper
+	branch = decoder
